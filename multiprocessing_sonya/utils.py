@@ -1,6 +1,7 @@
 import requests
 import multiprocessing
 import argparse
+import sys
 
 
 def download_image(url: str)->None:
@@ -11,7 +12,8 @@ def download_image(url: str)->None:
     print(f"Image {name} downloaded successfully")
 
 
-def main(urls: list) -> None:
+def main() -> None:
+    urls = sys.argv[2:]
     parser = argparse.ArgumentParser()
     parser.add_argument("urls", nargs="+", help="List of image URLs")
     args = parser.parse_args()
